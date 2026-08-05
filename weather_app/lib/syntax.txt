@@ -1,0 +1,314 @@
+// ============================================================
+// Stateless Widget
+// A widget whose UI does not change during runtime.
+// ============================================================
+
+class WeatherTitle extends StatelessWidget {
+  const WeatherTitle({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text(
+      "Weather App",
+      style: TextStyle(fontSize: 28),
+    );
+  }
+}
+
+
+
+// ============================================================
+// Widget Tree
+// Flutter UI is built as a hierarchy of widgets.
+// ============================================================
+
+MaterialApp(
+  home: Scaffold(
+    appBar: AppBar(
+      title: Text("Weather App"),
+    ),
+    body: Center(
+      child: Text("Today's Weather"),
+    ),
+  ),
+);
+
+
+
+// ============================================================
+// BuildContext
+// BuildContext tells Flutter where the widget is placed
+// inside the Widget Tree.
+// ============================================================
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Weather"),
+      ),
+      body: Center(
+        child: Text("Patiala"),
+      ),
+    );
+  }
+}
+
+
+
+// ============================================================
+// Text Widget
+// Used to display text on the screen.
+// ============================================================
+
+Text("Patiala");
+
+Text(
+  "28°C",
+  style: TextStyle(
+    fontSize: 40,
+    fontWeight: FontWeight.bold,
+  ),
+);
+
+
+
+// ============================================================
+// Column Widget
+// Arranges widgets vertically.
+// ============================================================
+
+Column(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    Icon(Icons.wb_sunny),
+    Text("28°C"),
+    Text("Sunny"),
+  ],
+);
+
+
+
+// ============================================================
+// Row Widget
+// Arranges widgets horizontally.
+// ============================================================
+
+Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: [
+    Icon(Icons.location_on),
+    SizedBox(width: 8),
+    Text("Patiala"),
+  ],
+);
+
+
+
+// ============================================================
+// Center Widget
+// Places its child in the center.
+// ============================================================
+
+Center(
+  child: Text("Weather App"),
+);
+
+
+
+// ============================================================
+// Padding Widget
+// Adds space around a widget.
+// ============================================================
+
+Padding(
+  padding: EdgeInsets.all(16),
+  child: Text("Humidity"),
+);
+
+
+
+// ============================================================
+// Container Widget
+// Used for styling, sizing and positioning widgets.
+// ============================================================
+
+Container(
+  width: 220,
+  height: 120,
+  padding: EdgeInsets.all(16),
+  decoration: BoxDecoration(
+    color: Colors.blue,
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: Text(
+    "28°C",
+    style: TextStyle(
+      color: Colors.white,
+      fontSize: 32,
+    ),
+  ),
+);
+
+
+
+// ============================================================
+// Card Widget
+// Displays content inside a Material Design card.
+// ============================================================
+
+Card(
+  elevation: 5,
+  child: Padding(
+    padding: EdgeInsets.all(16),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(Icons.cloud),
+        Text("Cloudy"),
+        Text("25°C"),
+      ],
+    ),
+  ),
+);
+
+
+
+// ============================================================
+// Icon Widget
+// Displays Material Icons.
+// ============================================================
+
+Icon(
+  Icons.wb_sunny,
+  size: 60,
+  color: Colors.orange,
+);
+
+
+
+// ============================================================
+// TextStyle
+// Used to style text.
+// ============================================================
+
+Text(
+  "Today's Forecast",
+  style: TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: Colors.blue,
+  ),
+);
+
+
+
+// ============================================================
+// Colors
+// Flutter provides predefined colors.
+// ============================================================
+
+Container(
+  color: Colors.lightBlue,
+  child: Text(
+    "Weather",
+    style: TextStyle(
+      color: Colors.white,
+    ),
+  ),
+);
+
+
+
+// ============================================================
+// AppBar
+// Top navigation bar of the application.
+// ============================================================
+
+Scaffold(
+  appBar: AppBar(
+    title: Text("Weather App"),
+    backgroundColor: Colors.blue,
+    actions: [
+      IconButton(
+        onPressed: () {},
+        icon: Icon(Icons.refresh),
+      ),
+    ],
+  ),
+);
+
+
+
+// ============================================================
+// ElevatedButton
+// Raised button used for important actions.
+// ============================================================
+
+ElevatedButton(
+  onPressed: () {
+    print("Fetching Weather...");
+  },
+  child: Text("Get Weather"),
+);
+
+
+
+// ============================================================
+// IconButton
+// A clickable icon.
+// ============================================================
+
+IconButton(
+  onPressed: () {
+    print("Refresh Weather");
+  },
+  icon: Icon(Icons.refresh),
+);
+
+
+
+// ============================================================
+// Extracting Widgets
+// Breaking large UI into smaller reusable widgets.
+// ============================================================
+
+class WeatherCard extends StatelessWidget {
+  const WeatherCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 5,
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              Icons.wb_sunny,
+              color: Colors.orange,
+              size: 50,
+            ),
+            SizedBox(height: 10),
+            Text(
+              "28°C",
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text("Sunny"),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Reusing the extracted widget
+
+const WeatherCard();
